@@ -1,3 +1,4 @@
+
 " This must be first, because it changes other options as side effect
 set nocompatible
 filetype off
@@ -43,9 +44,9 @@ Plugin 'scrooloose/syntastic'
 "auto-completion stuff
 "Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/rope-vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
+"Plugin 'klen/rope-vim'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'ervandew/supertab'
 
 "code folding
 Plugin 'tmhedberg/SimpylFold'
@@ -63,7 +64,7 @@ filetype plugin indent on "enables filetype detection
 let g:SimpylFold_docstring_preview =1
 
 "autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_completion=1
 
 "custom keys
 let mapleader=" "
@@ -73,6 +74,7 @@ call togglebg#map("<F5>")
 
 let NERDTreeIgnore=['\.pyc$','\~$'] "ignore files in NERDTree
 " Quickly edit/reload the vimrc file
+
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
@@ -106,6 +108,16 @@ set encoding=utf-8
 " Enable folding with the spacebar
 nnoremap <space> za
 
+" Cursor line
+set cursorline
+highlight Cursorline guibg=lightblue ctermbg=lightgray
+"set cursorcolumn
+
+" Tooltips
+set ballooneval
+set balloondelay=400
+set balloonexpr="textstring"
+
 " Python stuff
 au BufNewFile,BufRead *.py
     \ set tabstop=4    | 
@@ -131,7 +143,7 @@ if 'VIRTUAL_ENV' in os.environ:
 	execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 "Start Python PEP 8 Stuff 
 highlight BadWhitespace ctermbg=red guibg=red
@@ -150,11 +162,17 @@ nnoremap <space> za
 "Nerdtree settings
 let NERDTreeIgnore=['\.pyc$','\~$'] "ignore files in NERDTree
 let g:NERDTreeWinPos = "left"
-autocmd vimenter * NERDTree
+let NERDTreeQuitOnOpen=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+"let NERDTreeShowHidden=1
+"autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd Vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd Vimenter * if argc()==1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
+nnoremap <silent> <Leader>v : NERDTreeFind<CR>
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd Vimenter * if argc()==1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
