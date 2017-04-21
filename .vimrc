@@ -1,4 +1,3 @@
-
 " This must be first, because it changes other options as side effect
 set nocompatible
 filetype off
@@ -52,7 +51,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmhedberg/SimpylFold'
 
 "UI
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "Colors!!
 Plugin 'altercation/vim-colors-solarized'
@@ -64,7 +65,7 @@ filetype plugin indent on "enables filetype detection
 let g:SimpylFold_docstring_preview =1
 
 "autocomplete
-"let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion=1
 
 "custom keys
 let mapleader=" "
@@ -119,19 +120,19 @@ set balloondelay=400
 set balloonexpr="textstring"
 
 " Python stuff
-au BufNewFile,BufRead *.py
-    \ set tabstop=4    | 
-    \ set softtabstop=4|
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab   |
-    \ set autoindent |
-    \ set fileformat=unix|
+au BufNewFile,BufRead *.py 
+	\ set tabstop=4    | 
+	\ set softtabstop=4|
+	\ set shiftwidth=4 |
+	\ set textwidth=79 |
+	\ set expandtab   |
+	\ set autoindent |
+	\ set fileformat=unix|
 
 au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2|
-    \ set softtabstop=2|
-    \ set shiftwidth=2|
+	\ set tabstop=2|
+	\ set softtabstop=2|
+	\ set shiftwidth=2|
 
 " python with virtualenv support
 py <<EOF
@@ -176,4 +177,29 @@ nnoremap <silent> <Leader>v : NERDTreeFind<CR>
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-set clipboard=unnamed
+"Airline
+set laststatus=2
+let g:airline_right_sep="<"
+let g:airline_left_sep=">"
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_detect_crypt=1
+let g:airline_detect_spell=1
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 1
+"let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#obsession#enabled = 1
+"let g:airline#extensions#tabline#buffer_min_count = 0
+let g:airline_section_c ='%<%F%m%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+"let airline#extensions#tabline#disable_refresh = 1
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+let g:airline#extensions#tabline#show_close_button = 0 
+set t_Co=256
+set noshowmode
