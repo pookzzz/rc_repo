@@ -1,138 +1,143 @@
-" This must be first, because it changes other options as side effect
+"START{{{
 set nocompatible
 filetype off
+"}}}
+" PLUGINS {{{
+call plug#begin('~/.vim/plugged')
 
-set runtimepath+=~/.vim_runtime
+Plug 'junegunn/vim-easy-align'
 
-"source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
+"Undo
+Plug 'sjl/gundo.vim'
 
-try
-source ~/.vim_runtime/my_configs.vim
-catch
-endtry
-
-" Plugin managers, Vundle, Pathogen...
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-
-Plugin 'VundleVim/Vundle.vim'
 "git interface
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "filesystem
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
 
 "html
-Plugin 'isnowfy/python-vim-instant-markdown'
-"Plugin 'jtratner/vim-flavored-markedown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+Plug 'isnowfy/python-vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
+Plug 'nelstrom/vim-markdown-preview'
 
 "python syntax checker
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/Pydiction'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
 
 "auto-completion stuff
-"Plugin 'klen/python-mode'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'klen/rope-vim'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'ervandew/supertab'
+"Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+"Plug 'klen/rope-vim'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'ervandew/supertab'
 
 "code folding
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 
 "UI
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "Colors!!
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jnurmine/Zenburn'
 
-call vundle#end()
+"Searching 
+Plug 'ggreer/the_silver_searcher'
 
-filetype plugin indent on "enables filetype detection
-let g:SimpylFold_docstring_preview =1
+"Notes
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 
-"autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
+call plug#end()
 
-"custom keys
-let mapleader=" "
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+"}}}
+" COLORS {{{
+colorscheme zenburn
+syntax enable
 call togglebg#map("<F5>")
-
-let NERDTreeIgnore=['\.pyc$','\~$'] "ignore files in NERDTree
-" Quickly edit/reload the vimrc file
-
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-let python_highlight_all=1
-syntax on
-
-"No swapfile
-set noswapfile
-
-"Turn on numbering
-set nu
-set clipboard=unnamed
-
+set t_Co=256
+"}}}
+" SPACE&TABS{{{
+set tabstop=4
+set softtabstop=4
+set expandtab
+"}}}
+" UICONFIG {{{
+set number
+set showcmd
+set cursorline
+set wildmenu
+set lazyredraw
+set showmatch
+filetype indent on "load filetype specific indent files
+set encoding=utf-8
+"}}}
+"SEARCHING{{{
+set incsearch
+"set hlsearch 
+"}}}
+"FOLDING{{{
+set foldenable
+set foldlevelstart=10 "open most folds by default
+set foldnestmax=10
+set foldmethod=indent "options: marker,manual, expr, syntax, diff
+noremap <space> za<CR> "space open/closes folds
+"}}}
+"MOVEMENT{{{
+nnoremap j gj
+nnoremap k gk
+nnoremap gV `[v`]
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable split
-set splitbelow
-set splitright
-
-" UTF8 Support
+"}}}
+"LEADER{{{
+let mapleader=","
+inoremap jk <esc>
+nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+"}}}
+" AUTOGROUP {{{
+augroup configgroup
+        autocmd!
+        au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+        au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
+        au BufRead,BufNewFile *.py, *.pyw match BadWhitespace /^\t\+/
+        au BufRead,BufNewFile *.py, *.pyw, *.c, *.h match BadWhitespace /\s\+$/
+        au BufRead,BufNewFile *.py, *.pyw, set textwidth=100
+        au BufRead,BufNewFile *.py, *.pyw, *.c, *.h set fileformat=unix
+        "NERDTree autocmds
+        "au StdinReadPre * let s:std_in=1
+        "au Vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+        "au StdinReadPre * let s:std_in=1
+        "au Vimenter * if argc()==1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
+        au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+        "au vimenter * NERDTree
+        au FileType python set autoindent
+        au FileType python set foldmethod=indent
+" }}}
+" BACKUP {{{
+"set backup
+"set backupdir=~/.vim-tmp, ~/.tmp, ~/tmp,/var/tmp, /tmp
+"set backupskip=/tmp/*, private/tmp/*
+"set directory=~/tmp,
+"set writebackup
+"}}}
+" PYTHON {{{
 set encoding=utf-8
-
-" Enable folding with the spacebar
-nnoremap <space> za
-
-" Cursor line
-set cursorline
-highlight Cursorline guibg=lightblue ctermbg=lightgray
-"set cursorcolumn
-
-" Tooltips
-set ballooneval
-set balloondelay=400
-set balloonexpr="textstring"
-
-" Python stuff
-au BufNewFile,BufRead *.py 
-	\ set tabstop=4    | 
-	\ set softtabstop=4|
-	\ set shiftwidth=4 |
-	\ set textwidth=79 |
-	\ set expandtab   |
-	\ set autoindent |
-	\ set fileformat=unix|
-
-au BufNewFile,BufRead *.js, *.html, *.css
-	\ set tabstop=2|
-	\ set softtabstop=2|
-	\ set shiftwidth=2|
+set backspace=indent,eol,start
+let python_highlight_all=1
+syntax on
+highlight BadWhitespace ctermbg=red guibg=red
 
 " python with virtualenv support
 py <<EOF
@@ -143,24 +148,9 @@ if 'VIRTUAL_ENV' in os.environ:
 	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
 	execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-"Start Python PEP 8 Stuff 
-highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py, *.pyw match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.py, *.pyw, *.c, *.h match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.py, *.pyw, set textwidth=100
-au BufRead,BufNewFile *.py, *.pyw, *.c, *.h set fileformat=unix
-set encoding=utf-8
-let python_highlight_all=1
-syntax on
-autocmd FileType python set autoindent
-set backspace=indent,eol,start
-autocmd FileType python set foldmethod=indent
-nnoremap <space> za
-
-"Nerdtree settings
+" }}}
+"PLUGIN SETTINGS {{{
+" NERDTREE {{{
 let NERDTreeIgnore=['\.pyc$','\~$'] "ignore files in NERDTree
 let g:NERDTreeWinPos = "left"
 let NERDTreeQuitOnOpen=1
@@ -168,16 +158,10 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 "let NERDTreeShowHidden=1
-"autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd Vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <silent> <Leader>v : NERDTreeFind<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd Vimenter * if argc()==1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"Airline
+" }}}
+" AIRLINE {{{
 set laststatus=2
 let g:airline_right_sep="<"
 let g:airline_left_sep=">"
@@ -201,5 +185,25 @@ let g:airline_section_c ='%<%F%m%#__accent_red#%{airline#util#wrap(airline#parts
 "let airline#extensions#tabline#disable_refresh = 1
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#tabline#show_close_button = 0 
-set t_Co=256
-set noshowmode
+" }}}
+"NOTES{{{
+let g:notes_suffix='.txt'
+let g:notes_directories=['~/workspace/notes']
+let g:notes_unicode_enabled = 1
+"}}}
+"CtrlP{{{
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+"}}}
+"}}}
+"OTHERS{{{
+" Enable split
+set splitbelow
+set splitright
+"}}}
+
+" VIMRC Fold settings
+set modelines=1
+" vim:foldmethod=marker:foldlevel=0
