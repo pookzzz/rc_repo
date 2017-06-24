@@ -18,14 +18,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 
-"html
+"markdown
 Plug 'isnowfy/python-vim-instant-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-markdown-preview'
 
+"html
+Plug 'mattn/emmet-vim'
+
 "python syntax checker
 Plug 'nvie/vim-flake8'
-Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
 
@@ -33,6 +35,7 @@ Plug 'scrooloose/syntastic'
 "Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 "Plug 'klen/rope-vim'
 "Plug 'davidhalter/jedi-vim'
+Plug 'rkulla/Pydiction'
 "Plug 'ervandew/supertab'
 
 "code folding
@@ -105,6 +108,7 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>l :bnext<CR>
 "}}}
 " AUTOGROUP {{{
 augroup configgroup
@@ -210,7 +214,14 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 "}}}
+"Pydiction {{{
+filetype plugin on
+let g:pydiction_location="~/.vim/plugged/Pydiction/complete_dict"
+let g:pydiction_menu_height = 3
+""}}}
+" JEDI {{{
 "}}}
+""}}}
 "OTHERS{{{
 " Enable split
 set splitbelow
