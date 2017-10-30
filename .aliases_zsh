@@ -1,0 +1,11 @@
+echo $shell
+
+alias a=alias
+alias zs="source ~/.zshrc"
+
+a u="cd .."
+a uu="cd ../.."
+a uuu="cd ../../.."
+
+a ll="ls -al"
+#EOF
