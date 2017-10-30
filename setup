@@ -1,0 +1,9 @@
+echo "This script needs to be ran inside the rc_po directory."
+echo "Linking vim"
+ln -s .vim ~/.vim
+ln -s .vimrc ~/.vimrc
+echo "Linking zshrc"
+ln -s .zshrc ~/.zshrc
+ln -s .aliases_zsh ~/.aliases_zsh
+echo "Linking tmux"
+ln -s .tmux.conf ~/.tmux.conf
