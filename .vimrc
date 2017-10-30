@@ -18,14 +18,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 
-"html
+"markdown
 Plug 'isnowfy/python-vim-instant-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-markdown-preview'
 
+"html
+Plug 'mattn/emmet-vim'
+
 "python syntax checker
 Plug 'nvie/vim-flake8'
-Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
 
@@ -33,6 +35,7 @@ Plug 'scrooloose/syntastic'
 "Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 "Plug 'klen/rope-vim'
 "Plug 'davidhalter/jedi-vim'
+Plug 'rkulla/Pydiction'
 "Plug 'ervandew/supertab'
 
 "code folding
@@ -105,25 +108,39 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>l :bnext<CR>
 "}}}
 " AUTOGROUP {{{
 augroup configgroup
         autocmd!
-        au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-        au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
-        au BufRead,BufNewFile *.py, *.pyw match BadWhitespace /^\t\+/
-        au BufRead,BufNewFile *.py, *.pyw, *.c, *.h match BadWhitespace /\s\+$/
-        au BufRead,BufNewFile *.py, *.pyw, set textwidth=100
-        au BufRead,BufNewFile *.py, *.pyw, *.c, *.h set fileformat=unix
-        "NERDTree autocmds
-        "au StdinReadPre * let s:std_in=1
-        "au Vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-        "au StdinReadPre * let s:std_in=1
-        "au Vimenter * if argc()==1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
-        au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-        "au vimenter * NERDTree
+        " Python
+        au BufRead,BufNewFile *.py,*.pyw set expandtab
+        au BufRead,BufNewFile *.py,*.pyw set textwidth=139
+        au BufRead,BufNewFile *.py,*.pyw set tabstop=4
+        au BufRead,BufNewFile *.py,*.pyw set softtabstop=4
+        au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
+        au BufRead,BufNewFile *.py,*.pyw set autoindent
+        au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+        au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
+        au         BufNewFile *.py,*.pyw set fileformat=unix
+        au BufRead,BufNewFile *.py,*.pyw let b:comment_leader = '#'
         au FileType python set autoindent
         au FileType python set foldmethod=indent
+
+        "NERDTree autocmds
+        au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+        " HTML
+        au BufRead,BufNewFile *.html set filetype=xml
+        au BufRead,BufNewFile *.html set expandtab
+        au BufRead,BufNewFile *.html set tabstop=4
+        au BufRead,BufNewFile *.html set softtabstop=4
+        au BufRead,BufNewFile *.html set shiftwidth=4
+        au BufRead,BufNewFile *.html set autoindent
+        au BufRead,BufNewFile *.html match BadWhitespace /^\t\+/
+        au BufRead,BufNewFile *.html match BadWhitespace /\s\+$/
+        au         BufNewFile *.html set fileformat=unix
+        au BufRead,BufNewFile *.html let b:comment_leader = '<!--'
 " }}}
 " BACKUP {{{
 "set backup
@@ -197,7 +214,14 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 "}}}
+"Pydiction {{{
+filetype plugin on
+let g:pydiction_location="~/.vim/plugged/Pydiction/complete_dict"
+let g:pydiction_menu_height = 3
+""}}}
+" JEDI {{{
 "}}}
+""}}}
 "OTHERS{{{
 " Enable split
 set splitbelow

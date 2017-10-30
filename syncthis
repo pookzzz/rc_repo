@@ -1,0 +1,4 @@
+echo "sync vimrc"
+sudo cp ~/.vimrc ./
+echo "sync vim dir"
+sudo cp -r ~/.vim ./
