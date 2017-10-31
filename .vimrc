@@ -89,7 +89,7 @@ set foldenable
 set foldlevelstart=10 "open most folds by default
 set foldnestmax=10
 set foldmethod=indent "options: marker,manual, expr, syntax, diff
-noremap <space> za<CR> "space open/closes folds
+noremap <leader>, za<CR> "space open/closes folds
 "}}}
 "MOVEMENT{{{
 nnoremap j gj
@@ -102,13 +102,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 "}}}
 "LEADER{{{
-let mapleader=","
+let mapleader=" "
 inoremap jk <esc>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :bnext<CR>
+nnoremap <silent><leader>v : NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 "}}}
 " AUTOGROUP {{{
 augroup configgroup
@@ -175,8 +177,6 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 "let NERDTreeShowHidden=1
-nnoremap <silent> <Leader>v : NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
 " }}}
 " AIRLINE {{{
 set laststatus=2
