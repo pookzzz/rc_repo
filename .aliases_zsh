@@ -1,11 +1,15 @@
 echo $shell
 
 alias a=alias
-alias zs="source ~/.zshrc"
+a zs="source ~/.zshrc"
 
+# Directory
 a u="cd .."
 a uu="cd ../.."
 a uuu="cd ../../.."
 
+# Listing
 a ll="ls -al"
+a ltr="ls -ltr"
+
 #EOF

@@ -4,8 +4,8 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Backing up existing configs
 mkdir -p $HOME/backup_config
 backup="$HOME/backup_config"
+
 mv $HOME/.vimrc $backup
-mv $HOME/.vim $backup
 mv $HOME/.aliases* $backup
 mv $HOME/.zshrc $backup
 mv $HOME/.tmux.conf $backup
@@ -14,7 +14,6 @@ echo "This script needs to be ran inside the rc_po directory."
 repo="`pwd`"
 echo $repo
 echo "Linking vim"
-ln -s -f $repo/.vim $HOME/.vim
 ln -s -f $repo/.vimrc $HOME/.vimrc
 echo "Linking zshrc"
 ln -s -f $repo/.zshrc $HOME/.zshrc
