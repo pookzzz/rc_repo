@@ -5,6 +5,10 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 mkdir -p $HOME/backup_config
 backup="$HOME/backup_config"
 
+# Making Directory tree for vim plugins
+mkdir -p $HOME/.vim/autoload
+curl -flo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 mv $HOME/.vimrc $backup
 mv $HOME/.aliases* $backup
 mv $HOME/.zshrc $backup
