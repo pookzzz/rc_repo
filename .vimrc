@@ -34,8 +34,8 @@ Plug 'scrooloose/syntastic'
 "auto-completion stuff
 "Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 "Plug 'klen/rope-vim'
-"Plug 'davidhalter/jedi-vim'
-Plug 'rkulla/Pydiction'
+Plug 'davidhalter/jedi-vim'
+"Plug 'rkulla/Pydiction'
 "Plug 'ervandew/supertab'
 
 "code folding
@@ -55,6 +55,9 @@ Plug 'ggreer/the_silver_searcher'
 "Notes
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
+
+"Wordpress
+Plug 'danielmiessler/VimBlog'
 
 call plug#end()
 
@@ -102,7 +105,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 "}}}
 "LEADER{{{
-let mapleader=" "
+let mapleader=","
 inoremap jk <esc>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
@@ -110,7 +113,7 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :bnext<CR>
 nnoremap <silent><leader>v : NERDTreeFind<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>a :NERDTreeToggle<CR>
 "}}}
 " AUTOGROUP {{{
 augroup configgroup
