@@ -1,3 +1,6 @@
+# Check if zsh is available
+# if yes set as default shell
+# if not install zsh
 # Getting oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 

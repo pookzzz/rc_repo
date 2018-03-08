@@ -8,23 +8,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 "Undo
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
 
 "git interface
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 "filesystem
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 
 "markdown
-Plug 'isnowfy/python-vim-instant-markdown'
-Plug 'suan/vim-instant-markdown'
-Plug 'nelstrom/vim-markdown-preview'
+"Plug 'isnowfy/python-vim-instant-markdown'
+"Plug 'suan/vim-instant-markdown'
+"Plug 'nelstrom/vim-markdown-preview'
 
 "html
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 
 "python syntax checker
 Plug 'nvie/vim-flake8'
@@ -48,22 +48,24 @@ Plug 'vim-airline/vim-airline-themes'
 "Colors!!
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
+Plug 'liuchengxu/space-vim-dark'
 
 "Searching 
-Plug 'ggreer/the_silver_searcher'
+"Plug 'ggreer/the_silver_searcher'
 
 "Notes
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 
 "Wordpress
-Plug 'danielmiessler/VimBlog'
+"Plug 'danielmiessler/VimBlog'
 
 call plug#end()
 
 "}}}
 " COLORS {{{
-colorscheme zenburn
+colorscheme space-vim-dark
+hi Comment cterm=italic
 syntax enable
 call togglebg#map("<F5>")
 set t_Co=256
