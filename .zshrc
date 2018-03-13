@@ -88,3 +88,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 source $HOME/.aliases_zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# added by Anaconda3 4.1.1 installer
+export PATH="/home/ec2-user/anaconda3/bin:$PATH"

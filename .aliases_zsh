@@ -12,4 +12,6 @@ a uuu="cd ../../.."
 a ll="ls -al"
 a ltr="ls -ltr"
 
+# Shortcut
+a wk="cd ~/workspace"
 #EOF
