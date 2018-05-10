@@ -114,6 +114,7 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :bnext<CR>
+nnoremap <leader>; :bprevious<CR>
 nnoremap <silent><leader>v : NERDTreeFind<CR>
 nnoremap <leader>a :NERDTreeToggle<CR>
 "}}}
