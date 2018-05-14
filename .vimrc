@@ -1,6 +1,7 @@
 "START{{{
 set nocompatible
-filetype off
+filetype on
+echom ">^.^<"
 "}}}
 " PLUGINS {{{
 call plug#begin('~/.vim/plugged')
@@ -11,7 +12,7 @@ Plug 'junegunn/vim-easy-align'
 "Plug 'sjl/gundo.vim'
 
 "git interface
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "filesystem
 Plug 'scrooloose/nerdtree'

@@ -2,6 +2,11 @@
 # if yes set as default shell
 # if not install zsh
 # Getting oh-my-zsh
+# TODO: To change default shell to zsh first before downloading oh-my-zsh
+sudo chsh -s `which zsh`
+
+# if zsh not present, download zsh
+
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Backing up existing configs
