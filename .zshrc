@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/workspace/closr/flutter/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -51,7 +52,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git kubectl react)
 
 #alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
@@ -90,4 +91,10 @@ source $HOME/.aliases_zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # added by Anaconda3 4.1.1 installer
-export PATH="/home/ec2-user/anaconda3/bin:$PATH"
+#export PATH="/home/ec2-user/anaconda3/bin:$PATH"
+
+#if [ $commands[kubectl] ]; then
+#        source <(kubectl completion zsh)
+#fi
+complete -C aws_completer aws
+source /usr/local/share/zsh/site-functions/_aws
