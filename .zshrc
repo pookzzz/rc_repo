@@ -52,7 +52,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl react)
+plugins=(git kubectl react aws-upload-zsh nvm node)
 
 #alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
@@ -90,11 +90,32 @@ source $HOME/.aliases_zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# added by Anaconda3 4.1.1 installer
-#export PATH="/home/ec2-user/anaconda3/bin:$PATH"
+# ZSH standalone npm install autocompletion. Add this to ~/.zshrc file.
+_npm_install_completion() {
+	local si=$IFS
 
+	# if 'install' or 'i ' is one of the subcommands, then...
+	if [[ ${words} =~ 'install' ]] || [[ ${words} =~ 'i ' ]]; then
+
+		# add the result of `ls ~/.npm` (npm cache) as completion options
+		compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+			COMP_LINE=$BUFFER \
+			COMP_POINT=0 \
+			ls ~/.npm -- "${words[@]}" \
+			2>/dev/null)
+	fi
+
+	IFS=$si
+}
+
+compdef _npm_install_completion 'npm'
+## END ZSH npm install autocompletion
 #if [ $commands[kubectl] ]; then
 #        source <(kubectl completion zsh)
 #fi
 complete -C aws_completer aws
 source /usr/local/share/zsh/site-functions/_aws
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
