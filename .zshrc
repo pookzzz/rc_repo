@@ -113,8 +113,8 @@ compdef _npm_install_completion 'npm'
 #if [ $commands[kubectl] ]; then
 #        source <(kubectl completion zsh)
 #fi
-complete -C aws_completer aws
-source /usr/local/share/zsh/site-functions/_aws
+#complete -C aws_completer aws
+#source /usr/local/share/zsh/site-functions/_aws
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
