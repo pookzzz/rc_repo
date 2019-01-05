@@ -30,7 +30,7 @@ Plug 'vim-scripts/closetag.vim'
 "python syntax checker
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 
 "auto-completion stuff
 "Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
