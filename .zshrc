@@ -56,7 +56,13 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl nvm node battery)
+plugins=(
+    git 
+    kubectl 
+    nvm 
+    node 
+    battery
+    zsh-syntax-highlighting)
 
 #alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
