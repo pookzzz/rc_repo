@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # Fix Locale
 export LC_ALL=en_US.UTF-8
@@ -129,3 +130,4 @@ compdef _npm_install_completion 'npm'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/sbin:$PATH"
