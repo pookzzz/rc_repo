@@ -33,3 +33,7 @@ ln -s -f $repo/.zshrc $HOME/.zshrc
 ln -s -f $repo/.aliases_zsh $HOME/.aliases_zsh
 echo "Linking tmux"
 ln -s -f $repo/.tmux.conf $HOME/.tmux.conf
+
+# ZSH config
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
