@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
 
 # Fix Locale
 export LC_ALL=en_US.UTF-8
@@ -61,9 +62,12 @@ plugins=(
     git 
     kubectl 
     nvm 
-    node 
+    node
+   npm 
     battery
-    zsh-syntax-highlighting)
+    zsh-syntax-highlighting
+    gatsby    
+)
 
 #alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
