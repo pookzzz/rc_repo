@@ -109,7 +109,7 @@ source $HOME/.aliases_zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Reload the plugin to highlight the commands each time Iterm2 starts
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 
 ### VISUAL CUSTOMISATION ###
@@ -180,3 +180,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/sbin:$PATH"
+
+
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
