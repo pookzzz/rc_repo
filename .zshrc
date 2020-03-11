@@ -139,7 +139,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
 
 # Add a new line after the global prompt
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Colorise the top Tabs of Iterm2 with the same color as background
 # Just change the 18/26/33 wich are the rgb values
