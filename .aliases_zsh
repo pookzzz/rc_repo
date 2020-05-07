@@ -9,8 +9,16 @@ a uu="cd ../.."
 a uuu="cd ../../.."
 
 # Listing
+a ls="ls --color=auto"
 a ll="ls -al"
 a ltr="ls -ltr"
+
+# Grepping
+a grep="grep --color=auto"
+a fgrep="fgrep --color=auto"
+a egrep="egrep --color=auto"
+
+a diff="diff --color=auto"
 
 # Shortcut
 a wk="cd ~/workspace"

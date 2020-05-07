@@ -121,7 +121,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 
 
 # Add a second prompt line for the command
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=false
 
 # Add a space in the first prompt
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
