@@ -9,7 +9,7 @@ a uu="cd ../.."
 a uuu="cd ../../.."
 
 # Listing
-a ls="ls --color=auto"
+a ls="ls --color=always"
 a ll="ls -al"
 a ltr="ls -ltr"
 

@@ -1,0 +1,10 @@
+{
+    "env": [
+        {
+            "QUIXEL": "D:/MegaScans/support/plugins/houdini/3.4.0/MSLiveLink"
+        },
+        {
+            "HOUDINI_PATH":"$QUIXEL"
+        }
+    ]
+}

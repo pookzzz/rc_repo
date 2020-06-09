@@ -1,0 +1,10 @@
+{
+    "env": [
+        {
+            "PATH": "C:/ProgramData/Redshift/bin"
+        },
+        {
+            "HOUDINI_PATH": "C:/ProgramData/Redshift/Plugins/Houdini/{$HOUDINI_VERSION}"
+        }
+    ]
+}

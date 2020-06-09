@@ -1,0 +1,16 @@
+{
+    "env": [
+        {
+            "QLIB": "C:/Users/zhouwanyi/Documents/workspace/houdini/plugins/qLib"
+        },
+        {
+            "QLIBT": "$QLIB/otls"
+        },
+        {
+            "HOUDINI_OTLSCAN_PATH": "$QLIB/base;$QLIB;future;$QLIB/experimental;@/otls"
+        },
+        {
+            "HOUDINI_PATH": "$QLIB;$QLIBT"
+        }
+    ]
+}

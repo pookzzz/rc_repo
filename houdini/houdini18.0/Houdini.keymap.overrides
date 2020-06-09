@@ -1,0 +1,7 @@
+h.pane.parms.open_external_editor	"Edit in External Editor"	"Custom Menu Operation: Edit in External Editor"	 Alt+W
+h.pane.wsheet.opmenu.flag_template	"Toggle Template"	"Toggle the Template flag of the selected node"	 3
+h.pane.wsheet.jump_mark_1	"Jump to Quickmark 1"	"Jumps to the quickmark 1 view"	 Pad1
+h.pane.wsheet.jump_mark_2	"Jump to Quickmark 2"	"Jumps to the quickmark 2 view"	 Pad2
+h.pane.wsheet.opmenu.flag_bypass	"Toggle Bypass"	"Toggle the Bypass flag of the selected node"	 2
+h.pane.wsheet.opmenu.flag_display	"Toggle Display"	"Toggle the Display flag of the selected node"	 1
+h.pane.wsheet.jump_mark_3	"Jump to Quickmark 3"	"Jumps to the quickmark 3 view"	 Pad3

@@ -1,3 +1,5 @@
+TERM=xterm-256color
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin::$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
@@ -34,7 +36,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+#DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -61,7 +63,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git 
-    kubectl 
     nvm 
     node
     npm 
@@ -78,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -115,37 +116,37 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 ### VISUAL CUSTOMISATION ###
 
 # Elements options of left prompt (remove the @username context)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 # Elements options of right prompt
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
-
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 
 # Add a second prompt line for the command
-POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 # Add a space in the first prompt
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
 
 # Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+# local user_symbol="$"
+# if [[ $(print -P "%#") =~ "#" ]]; then
+#     user_symbol = "#"
+# fi
+
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 
 
 # Change the git status to red when something isn't committed and pushed
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
+#POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
 
 # Add a new line after the global prompt
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+#POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Colorise the top Tabs of Iterm2 with the same color as background
 # Just change the 18/26/33 wich are the rgb values
-echo -e "\033]6;1;bg;red;brightness;18\a"
-echo -e "\033]6;1;bg;green;brightness;26\a"
-echo -e "\033]6;1;bg;blue;brightness;33\a"
+# echo -e "\033]6;1;bg;red;brightness;18\a"
+# echo -e "\033]6;1;bg;green;brightness;26\a"
+# echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 
 
@@ -183,3 +184,5 @@ export PATH="/usr/local/sbin:$PATH"
 
 
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
