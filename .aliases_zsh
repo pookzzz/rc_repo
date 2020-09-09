@@ -22,7 +22,7 @@ a diff="diff --color=auto"
 
 # Shortcut
 a wk="cd ~/workspace"
-a wkk="cd /mnt/c/Users/zhouwanyi/Documents/workspace"
+a wkk="cd /mnt/c/Users/Wanz/Documents/workspace"
 
 # Git
 alias gs='git status '
@@ -38,5 +38,7 @@ alias go='git checkout '
 alias got='git '
 alias get='git '
 
+# WINDOWS
 alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+alias mklink=" . mklink.sh"
 #EOF
