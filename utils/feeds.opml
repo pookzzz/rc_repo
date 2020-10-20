@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+    <head>
+        <title>QuiteRSS</title>
+        <dateModified>Tue Oct 20 09:44:28 2020</dateModified>
+    </head>
+    <body>
+        <outline text="QuiteRSS" type="rss" htmlUrl="http://quiterss.org/en/frontpage" xmlUrl="https://quiterss.org/en/rss.xml"/>
+        <outline text="Ness Labs" type="rss" htmlUrl="https://nesslabs.com" xmlUrl="http://nesslabs.com/feed"/>
+        <outline text="Houdini">
+            <outline text="Latest posts on forum" type="rss" htmlUrl="https://www.sidefx.com/forum/" xmlUrl="https://www.sidefx.com/forum/feeds/posts/"/>
+            <outline text="General Houdini Questions Latest Topics" type="rss" htmlUrl="https://forums.odforce.net/forum/15-general-houdini-questions/" xmlUrl="https://forums.odforce.net/forum/15-general-houdini-questions.xml/"/>
+            <outline text="Effects Latest Topics" type="rss" htmlUrl="https://forums.odforce.net/forum/21-effects/" xmlUrl="https://forums.odforce.net/forum/21-effects.xml/"/>
+            <outline text="VFX FORCE" type="rss" htmlUrl="https://www.vfxforce.cn" xmlUrl="https://www.vfxforce.cn/feed"/>
+            <outline text="EYEVEX" type="rss" htmlUrl="http://dansportfolio.com/wordpress" xmlUrl="http://dansportfolio.com/wordpress/feed/"/>
+            <outline text="REBELWAY 2.0" type="rss" htmlUrl="https://www.rebelway.net" xmlUrl="https://www.rebelway.net/feed"/>
+            <outline text="FX Thinking" type="rss" htmlUrl="https://pepefx.blogspot.com/" xmlUrl="https://pepefx.blogspot.com/feeds/posts/default"/>
+            <outline text="Simon Verstraete on ArtStation" type="rss" htmlUrl="https://www.artstation.com/siver" xmlUrl="https://www.artstation.com/siver.rss"/>
+            <outline text="Marc ten Bosch / Miegakure Blog" type="rss" htmlUrl="https://marctenbosch.com/news" xmlUrl="http://feeds.feedburner.com/marctenbosch"/>
+            <outline text="Entagma" type="rss" htmlUrl="https://entagma.com" xmlUrl="https://entagma.com/feed/"/>
+            <outline text="Toadstorm Nerdblog" type="rss" htmlUrl="https://www.toadstorm.com/blog" xmlUrl="https://www.toadstorm.com/blog/?feed=rss2"/>
+            <outline text="Cut And ..." type="rss" htmlUrl="http://yoong-cut-and.blogspot.com/" xmlUrl="http://yoong-cut-and.blogspot.com/feeds/posts/default"/>
+            <outline text="daily.hip" type="rss" htmlUrl="https://dailyhip.wordpress.com" xmlUrl="https://dailyhip.wordpress.com/feed/"/>
+            <outline text="Short &amp; Sweet 3D" type="rss" htmlUrl="http://shortandsweet3d.blogspot.com/" xmlUrl="http://shortandsweet3d.blogspot.com/feeds/posts/default"/>
+            <outline text="Houdini Tech Blog" type="rss" htmlUrl="http://dgd.service.tu-berlin.de/wordpress/houdini" xmlUrl="http://wordpress.discretization.de/houdini/feed/"/>
+            <outline text="Blog - Rok Andic" type="rss" htmlUrl="https://www.rokandic.com/blog/" xmlUrl="https://www.rokandic.com/blog?format=rss"/>
+            <outline text="Houdini Tricks" type="rss" htmlUrl="https://houdinitricks.com" xmlUrl="https://houdinitricks.com/feed/"/>
+            <outline text="ZYBRAND" type="rss" htmlUrl="https://zybrand.xyz" xmlUrl="https://zybrand.xyz/feed"/>
+            <outline text="Lesterbanks" type="rss" htmlUrl="https://lesterbanks.com" xmlUrl="https://lesterbanks.com/feed/"/>
+        </outline>
+        <outline text="Unreal">
+            <outline text="Tom Looman" type="rss" htmlUrl="https://www.tomlooman.com" xmlUrl="http://tomlooman.com/feed"/>
+            <outline text="UNREAL ENGINEER - BLOG" type="rss" htmlUrl="https://www.unrealengineer.com/blog" xmlUrl="https://www.unrealengineer.com/1/feed"/>
+            <outline text="Unity Technologies Blog" type="rss" htmlUrl="https://blogs.unity3d.com" xmlUrl="https://blogs.unity3d.com/feed/"/>
+            <outline text="Unreal Engine - News, Developer Interviews, Spotlights, Tech Blogs" type="rss" htmlUrl="https://www.unrealengine.com/rss" xmlUrl="https://www.unrealengine.com/en-US/rss"/>
+        </outline>
+        <outline text="Industry">
+            <outline text="fxguide" type="rss" htmlUrl="https://www.fxguide.com" xmlUrl="http://fxguide.com/feed"/>
+            <outline text="befores &amp; afters" type="rss" htmlUrl="https://beforesandafters.com" xmlUrl="https://beforesandafters.com/feed/"/>
+            <outline text="Two Minute Papers" type="rss" htmlUrl="https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg"/>
+        </outline>
+        <outline text="Blender">
+            <outline text="Blender.Today - Latest updates" type="rss" htmlUrl="http://blender.community/" xmlUrl="https://blender.community/c/today/feed/latest.atom"/>
+            <outline text="Blender NPR - Latest updates" type="rss" htmlUrl="http://blender.community/" xmlUrl="https://blender.community/c/npr/feed/latest.atom"/>
+        </outline>
+    </body>
+</opml>
