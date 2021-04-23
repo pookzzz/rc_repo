@@ -23,6 +23,7 @@ a diff="diff --color=auto"
 # Shortcut
 a wk="cd ~/workspace"
 a wkk="cd /mnt/c/Users/zhouwanyi/Documents/workspace"
+a wkd="cd /mnt/d/HoudiniProjects/wanz"
 
 # Git
 alias gs='git status '
