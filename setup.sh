@@ -1,13 +1,5 @@
-# Check if zsh is available
-# if yes set as default shell
-# if not install zsh
-# Getting oh-my-zsh
-# TODO: To change default shell to zsh first before downloading oh-my-zsh
-sudo chsh -s `which zsh`
+# Setup for bash on Windows
 
-# if zsh not present, download zsh
-
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Backing up existing configs
 mkdir -p $HOME/backup_config
@@ -28,16 +20,13 @@ echo $repo
 echo "Linking vim"
 ln -s -f $repo/.vimrc $HOME/.vimrc
 ln -s -f $repo/.vimpressrc $HOME/.vimpressrc
-echo "Linking zshrc"
-ln -s -f $repo/.zshrc $HOME/.zshrc
-ln -s -f $repo/.aliases_zsh $HOME/.aliases_zsh
+echo "Linking bashrc files"
+ln -s -f $repo/.bashrc $HOME/.bashrc
+ln -s -f $repo/.aliases_bash $HOME/.aliases_bash
+ln -s -f $repo/.bash_profile $HOME/.bash_profile
+ln -s -f $repo/.bash_login $HOME/.bash_login
 echo "Linking tmux"
 ln -s -f $repo/.tmux.conf $HOME/.tmux.conf
-
-# ZSH config
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # Setup workspace
 # TODO
