@@ -15,6 +15,12 @@ shopt -s cmdhist
 # https://bbs.archlinux.org/viewtopic.php?id=48910
 # previous in enigma2: "[\u@\h \W]\$ "
 # previously in mac: "\h:\W \u\$ "
-export PS1="\[\e[0;33m\]\A \W \$ \[\e[m\]"
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+# export PS1="\[\e[0;33m\]\A \W \$ \[\e[m\]"
 
 . /etc/bash_completion.d/git
