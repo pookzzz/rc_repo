@@ -40,6 +40,7 @@ alias got='git '
 alias get='git '
 
 # WINDOWS
-alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+# alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+alias findPortalAdd="find -size +100M -not -path "./.git/*" -and -not -path "./_portal/*" -exec git-portal add {} \;"
 alias mklink=" . mklink.sh"
 #EOF
