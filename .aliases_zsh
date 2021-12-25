@@ -40,4 +40,5 @@ alias got='git '
 alias get='git '
 
 alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+alias find_portal="find -size +100M -not -path "./.git/*" -and -not -path "./_portal/*" -exec git-portal add {} \;"
 #EOF

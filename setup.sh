@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Check if zsh is available
 # if yes set as default shell
 # if not install zsh
@@ -86,4 +85,3 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/cust
 
 # Setup workspace
 # TODO
->>>>>>> Stashed changes
