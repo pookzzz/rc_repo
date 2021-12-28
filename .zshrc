@@ -69,7 +69,7 @@ plugins=(
     battery
     zsh-syntax-highlighting
     zsh-autosuggestions
-    osx
+    macos
     gatsby    
 )
 
