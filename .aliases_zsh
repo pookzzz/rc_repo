@@ -20,7 +20,7 @@ a egrep="egrep --color=auto"
 a diff="diff --color=auto"
 
 # Shortcut
-a wk="cd ~/Documents/workspace"
+a wk="cd ~/workspace"
 
 # Git
 alias gs='git status '
