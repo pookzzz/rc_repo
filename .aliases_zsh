@@ -10,7 +10,7 @@ a uuu="cd ../../.."
 
 # Listing
 a ll="ls -al"
-a ltr="ls -ltr"
+a ltr="ls -altr"
 
 # Grepping
 a grep="grep --color=auto"
