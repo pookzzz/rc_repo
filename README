@@ -2,6 +2,7 @@ My RCfiles Repo for ZSH, TMUX and VIM
 #TMUX
 	.tmux.conf
 #ZSH
+	.zshrc
 #VIM
 	.vimrc
 	.vim_runtime
