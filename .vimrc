@@ -51,7 +51,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'liuchengxu/space-vim-dark'
 
-"Searching 
+"Searching
 "Plug 'ggreer/the_silver_searcher'
 
 "Notes
@@ -88,7 +88,7 @@ set encoding=utf-8
 "}}}
 "SEARCHING{{{
 set incsearch
-"set hlsearch 
+"set hlsearch
 "}}}
 "FOLDING{{{
 set foldenable
@@ -199,7 +199,7 @@ let g:airline#extensions#obsession#enabled = 1
 let g:airline_section_c ='%<%F%m%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 "let airline#extensions#tabline#disable_refresh = 1
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
-let g:airline#extensions#tabline#show_close_button = 0 
+let g:airline#extensions#tabline#show_close_button = 0
 " }}}
 "NOTES{{{
 let g:notes_suffix='.txt'
