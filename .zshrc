@@ -187,3 +187,5 @@ source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.iterm2_shell_integration.zsh
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
