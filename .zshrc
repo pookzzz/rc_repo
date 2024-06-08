@@ -5,6 +5,7 @@ export PATH=$HOME/bin:/usr/local/bin::$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+export PATH=/Library/TeSX/texbin:$PATH
 
 # Fix Locale
 export LC_ALL=en_US.UTF-8
