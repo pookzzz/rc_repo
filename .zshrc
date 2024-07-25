@@ -108,7 +108,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases_zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Reload the plugin to highlight the commands each time Iterm2 starts
 
@@ -185,7 +185,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.iterm2_shell_integration.zsh
+# source ~/.iterm2_shell_integration.zsh
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)

@@ -6,12 +6,11 @@
 sudo chsh -s `which zsh`
 
 # if zsh not present, download zsh
-
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Backing up existing configs
 mkdir -p $HOME/backup_config
-backup="$HOME/backup_config"
+backup=$HOME/backup_config
 
 # Making Directory tree for vim plugins
 mkdir -p $HOME/.vim/autoload
@@ -23,7 +22,7 @@ mv $HOME/.zshrc $backup
 mv $HOME/.tmux.conf $backup
 
 echo "This script needs to be ran inside the rc_po directory."
-repo="`pwd`"
+repo=`pwd`
 echo $repo
 echo "Linking vim"
 ln -s -f $repo/.vimrc $HOME/.vimrc
