@@ -26,6 +26,7 @@ a diff="diff --color=auto"
 
 # Shortcut
 a wk="cd ~/workspace"
+a lfx="cd ~/workspace/effects/LumiEffects"
 
 # Git
 alias gs='git status '
