@@ -191,3 +191,4 @@ test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 export PATH="/Users/bytedance/.gem/ruby/2.6.0/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
