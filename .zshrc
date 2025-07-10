@@ -5,6 +5,7 @@ export PATH=$HOME/bin:/usr/local/bin::$PATH
 export PATH=$HOME/workspace/flutter/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+export PATH=/Library/TeSX/texbin:$PATH
 
 # Fix Locale
 export LC_ALL=en_US.UTF-8
@@ -69,7 +70,6 @@ plugins=(
     battery
     zsh-syntax-highlighting
     zsh-autosuggestions
-    macos
     gatsby    
 )
 
@@ -107,7 +107,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases_zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Reload the plugin to highlight the commands each time Iterm2 starts
 
@@ -184,8 +184,11 @@ export PATH="/usr/local/sbin:$PATH"
 
 
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.iterm2_shell_integration.zsh
+# source ~/.iterm2_shell_integration.zsh
 
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
+export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
+export PATH="/Users/bytedance/.gem/ruby/2.6.0/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
