@@ -1,5 +1,31 @@
 *.swp
-**/.DS_store
+.swo
+.swm
+.swn
+.swp
+
+.DS_Store
+**/.DS_Store
+
+.history
+
+# Backups (repo-local)
 backup/
 backup
-.history
+backups/
+backup_config/
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+*~
+*.orig
+*.rej
+
+# Local-only overrides / secrets (should never be committed)
+.zshrc.local
+.vimrc.local
+.tmux.conf.local
+.env
+.env.*

@@ -1,42 +1,95 @@
-# Check if zsh is available
-# if yes set as default shell
-# if not install zsh
-# Getting oh-my-zsh
-# TODO: To change default shell to zsh first before downloading oh-my-zsh
-sudo chsh -s `which zsh`
+#!/usr/bin/env bash
+set -euo pipefail
 
-# if zsh not present, download zsh
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
-# Backing up existing configs
-mkdir -p $HOME/backup_config
-backup=$HOME/backup_config
+timestamp="$(date +%Y%m%d_%H%M%S)"
+backup_root="$HOME/backup_config"
+backup_dir="$backup_root/$timestamp"
 
-# Making Directory tree for vim plugins
-mkdir -p $HOME/.vim/autoload
-curl -flo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p "$backup_dir"
 
-mv $HOME/.vimrc $backup
-mv $HOME/.aliases* $backup
-mv $HOME/.zshrc $backup
-mv $HOME/.tmux.conf $backup
+backup_if_needed() {
+  local target="$1"
+  local dest
+  local base
 
-echo "This script needs to be ran inside the rc_po directory."
-repo=`pwd`
-echo $repo
-echo "Linking vim"
-ln -s -f $repo/.vimrc $HOME/.vimrc
-ln -s -f $repo/.vimpressrc $HOME/.vimpressrc
-echo "Linking zshrc"
-ln -s -f $repo/.zshrc $HOME/.zshrc
-ln -s -f $repo/.aliases_zsh $HOME/.aliases_zsh
-echo "Linking tmux"
-ln -s -f $repo/.tmux.conf $HOME/.tmux.conf
+  if [ ! -e "$target" ] && [ ! -L "$target" ]; then
+    return 0
+  fi
 
-# ZSH config
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  base="$(basename "$target")"
+  dest="$backup_dir/$base"
 
-# Setup workspace
-# TODO
+  if [ -L "$target" ]; then
+    local resolved
+    resolved="$(readlink "$target" || true)"
+    if [ "$resolved" = "$2" ]; then
+      return 0
+    fi
+  fi
+
+  mv -f "$target" "$dest"
+}
+
+link_file() {
+  local source="$1"
+  local target="$2"
+
+  backup_if_needed "$target" "$source"
+  ln -sfn "$source" "$target"
+}
+
+ensure_vim_plug() {
+  local plug_path="$HOME/.vim/autoload/plug.vim"
+  if [ -f "$plug_path" ]; then
+    return 0
+  fi
+  if ! command -v curl >/dev/null 2>&1; then
+    echo "curl not found; skipping vim-plug install"
+    return 0
+  fi
+  mkdir -p "$(dirname "$plug_path")"
+  curl -fsSL -o "$plug_path" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+ensure_oh_my_zsh_addons() {
+  local omz="$HOME/.oh-my-zsh"
+  if [ ! -d "$omz" ]; then
+    echo "oh-my-zsh not found at $omz; skipping zsh addon clones"
+    return 0
+  fi
+
+  mkdir -p "$omz/custom/themes" "$omz/custom/plugins"
+
+  if [ ! -d "$omz/custom/themes/powerlevel9k" ]; then
+    git clone https://github.com/bhilburn/powerlevel9k.git "$omz/custom/themes/powerlevel9k"
+  fi
+  if [ ! -d "$omz/custom/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$omz/custom/plugins/zsh-autosuggestions"
+  fi
+  if [ ! -d "$omz/custom/plugins/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting "$omz/custom/plugins/zsh-syntax-highlighting"
+  fi
+}
+
+maybe_set_default_shell() {
+  if [ "${1:-}" != "--set-default-shell" ]; then
+    return 0
+  fi
+  if ! command -v zsh >/dev/null 2>&1; then
+    echo "zsh not found; cannot set default shell"
+    return 0
+  fi
+  chsh -s "$(command -v zsh)" || true
+}
+
+link_file "$repo_root/.vimrc" "$HOME/.vimrc"
+link_file "$repo_root/.vimpressrc" "$HOME/.vimpressrc"
+link_file "$repo_root/.zshrc" "$HOME/.zshrc"
+link_file "$repo_root/.aliases_zsh" "$HOME/.aliases_zsh"
+link_file "$repo_root/.tmux.conf" "$HOME/.tmux.conf"
+
+ensure_vim_plug
+ensure_oh_my_zsh_addons
+maybe_set_default_shell "${1:-}"

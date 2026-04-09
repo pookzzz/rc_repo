@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Technical Artist & VFX</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1d;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00d4ff; /* Tech Blue */
+            --accent-hover: #00a3cc;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-title { font-size: 2rem; margin-bottom: 30px; border-left: 4px solid var(--accent); padding-left: 15px; }
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn:hover { background: var(--accent-hover); }
+
+        /* --- HEADER --- */
+        header { padding: 20px 0; border-bottom: 1px solid #333; position: sticky; top: 0; background: rgba(15, 15, 17, 0.95); z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #25252b 0%, #0f0f11 70%);
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-tagline { color: var(--accent); font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+
+        /* --- SHADER DEV SECTION (Grid) --- */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tech-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s; }
+        .tech-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card-media { height: 200px; background: #333; display: flex; align-items: center; justify-content: center; position: relative; }
+        /* Placeholder styling for media */
+        .card-media::after { content: "GIF / DEMO VIDEO"; color: #555; font-weight: bold; }
+        
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; }
+        .tech-stack { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .tech-tag { font-size: 0.8rem; background: #222; padding: 3px 8px; border-radius: 4px; border: 1px solid #444; color: var(--accent); }
+        .tech-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        /* --- CINEMATICS SECTION --- */
+        .cinematics-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* --- ABOUT & SKILLS --- */
+        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .skills-list h4 { margin-top: 20px; margin-bottom: 10px; color: var(--text-main); }
+        .skills-list ul li { margin-bottom: 5px; color: var(--text-muted); border-left: 2px solid #333; padding-left: 10px; }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 40px 0; margin-top: 80px; border-top: 1px solid #333; color: var(--text-muted); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">NAME<span>VFX</span></a>
+                <div class="nav-links">
+                    <a href="#shader-dev">Shader Dev</a>
+                    <a href="#cinematics">Cinematics</a>
+                    <a href="#about">About</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-tagline">Technical Artist & Graphics Engineer</span>
+            <h1>Bridging the Gap Between <br> Art and Engine.</h1>
+            <p>I build high-performance shader tools for CapCut creators and design cinematic VFX for games & film.</p>
+            <a href="#shader-dev" class="btn">View Technical Work</a>
+        </div>
+    </section>
+
+    <section id="shader-dev" style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Tool Development & Shader Engineering</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">
+                Creating reusable, optimized effects plugins for CapCut's design pipeline. Focus on mobile performance and designer usability.
+            </p>
+            
+            <div class="tech-grid">
+                <article class="tech-card">
+                    <div class="card-media">
+                        </div>
+                    <div class="card-content">
+                        <h3>Procedural Glitch Shader</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">GLSL</span>
+                            <span class="tech-tag">Optimization</span>
+                            <span class="tech-tag">UI/UX</span>
+                        </div>
+                        <p class="tech-desc">
+                            <strong>Challenge:</strong> Designers needed a non-destructive glitch effect that didn't rely on heavy video overlays.<br>
+                            <strong>Solution:</strong> Wrote a custom fragment shader using UV manipulation and noise functions. Exposed "Chaos" and "RGB Split" parameters to the UI.<br>
+                            <strong>Result:</strong> Runs at 60fps on mid-tier Android devices.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <div class="card-media"></div>
+                    <div class="card-content">
+                        <h3>Real-time Chromatic Aberration</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">Post-Processing</span>
+                        </div>
+                        <p class="tech-desc">
+                            <strong>Challenge:</strong> Emulating realistic lens distortion efficiently.<br>
+                            <strong>Solution:</strong> Implemented a radial distortion algorithm that calculates offset based on distance from center. Optimized texture lookups to prevent cache misses.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <div class="card-media"></div>
+                    <div class="card-content">
+                        <h3>Interactive Color Grading Tool</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Tooling</span>
+                        </div>
+                        <p class="tech-desc">
+                            <strong>Challenge:</strong> LUTs were too static for user customization.<br>
+                            <strong>Solution:</strong> Built a procedural grading tool allowing users to adjust shadows, midtones, and highlights independently using math-driven curves rather than static bitmaps.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="cinematics" style="padding: 80px 0; background: #151518;">
+        <div class="container">
+            <h2 class="section-title">VFX & Game Cinematics</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">
+                High-end production work. My background here informs the intuitive tools I build for other artists.
+            </p>
+
+            <div class="cinematics-grid">
+                <div>
+                    <h3 style="margin-bottom:10px;">Fast Film VFX Showreel</h3>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <ul class="tech-stack" style="margin-top:15px;">
+                        <span class="tech-tag">After Effects</span>
+                        <span class="tech-tag">Nuke</span>
+                        <span class="tech-tag">Blender</span>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom:10px;">Unreal Engine 5 Cinematic</h3>
+                    <div class="video-wrapper">
+                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p style="margin-top:10px; color: var(--text-muted); font-size: 0.9rem;">
+                        Note: The atmospheric fog in this scene was created using a custom volumetric shader I developed to reduce rendering cost.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-layout">
+                <div>
+                    <p style="margin-bottom: 20px;">
+                        I am a Technical Artist currently working at <strong>CapCut</strong>, where I bridge the gap between complex rendering code and artist-friendly tools. 
+                    </p>
+                    <p>
+                        With a background in film VFX and game cinematics, I understand the artistic vision. My engineering skills allow me to build the pipelines and shaders that make that vision possible on mobile devices.
+                    </p>
+                    <a href="mailto:your@email.com" class="btn">Contact Me</a>
+                </div>
+                
+                <div class="skills-list">
+                    <h4>Languages</h4>
+                    <ul>
+                        <li>GLSL / HLSL / Metal</li>
+                        <li>Python (Pipeline Tools)</li>
+                        <li>C++</li>
+                    </ul>
+
+                    <h4>Software</h4>
+                    <ul>
+                        <li>CapCut Effect House</li>
+                        <li>Unreal Engine 5 (Blueprints & Materials)</li>
+                        <li>Adobe After Effects / Nuke</li>
+                    </ul>
+
+                    <h4>Core Competencies</h4>
+                    <ul>
+                        <li>Mobile Graphics Optimization</li>
+                        <li>PBR Rendering</li>
+                        <li>Procedural Generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Built with simple HTML/CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

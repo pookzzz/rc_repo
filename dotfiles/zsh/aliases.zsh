@@ -1,0 +1,46 @@
+alias a=alias
+a zs="source ~/.zshrc"
+
+# Shell
+a h="history"
+a c="clear"
+
+# Directory
+a u="cd .."
+a uu="cd ../.."
+a uuu="cd ../../.."
+
+# Listing
+a ls="ls --color=always"
+a ll="ls -al"
+a ltr="ls -ltr"
+
+# Grepping
+a grep="grep --color=auto"
+a fgrep="fgrep --color=auto"
+a egrep="egrep --color=auto"
+
+a diff="diff --color=auto"
+
+# Shortcut
+a wk="cd ~/workspace"
+a lfx="cd ~/workspace/effects/LumiEffects"
+
+# Git
+alias gs='git status '
+alias ga='git add '
+alias grm='git rm '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+#alias gk='gitk --all&'
+#alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
+
+# WINDOWS
+# alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+alias findPortalAdd="find -size +100M -not -path './.git/*' -and -not -path './_portal/*' -exec git-portal add {} \;"
+#EOF
